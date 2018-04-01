@@ -9,8 +9,8 @@ export const MatrixRow = ({rowIndex}) => {
     for (let cellIndex = 0; cellIndex <= rowIndex; cellIndex++) {
       cells.push(
         <MatrixCell
-          i={rowIndex}
-          j={cellIndex}
+          rowIndex={rowIndex}
+          cellIndex={cellIndex}
           key={`matrix-cell-${rowIndex}-${cellIndex}`}
         />
       );

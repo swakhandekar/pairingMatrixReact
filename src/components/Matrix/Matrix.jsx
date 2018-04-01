@@ -5,8 +5,8 @@ import "./matrix.scss";
 export const Matrix = ({length}) => {
   const getRows = (length) => {
     const rows = [];
-    for (let i = 0; i < length; i++) {
-      rows.push(<MatrixRow key={`row_${i}`}/>)
+    for (let rowIndex = 0; rowIndex < length; rowIndex++) {
+      rows.push(<MatrixRow rowIndex={rowIndex} key={`row_${rowIndex}`}/>)
     }
     return rows;
   };

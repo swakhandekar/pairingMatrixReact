@@ -1,3 +1,8 @@
 import React from "react";
+import "./matrixCell.scss";
 
-export const MatrixCell = () => (<div className="matrix-cell"/>);
+export const MatrixCell = ({rowIndex, cellIndex}) => (
+  <div className={`matrix-cell-${rowIndex}-${cellIndex}`}>
+    0
+  </div>
+);
