@@ -1,5 +1,6 @@
 import React from "react";
 import {MatrixCell} from "../MatrixCell/MatrixCell";
+import {MyCard} from "../../utils/MyCard/MyCard";
 import "./matrixRow.scss";
 
 export const MatrixRow = ({rowIndex}) => {
@@ -8,11 +9,12 @@ export const MatrixRow = ({rowIndex}) => {
 
     for (let cellIndex = 0; cellIndex <= rowIndex; cellIndex++) {
       cells.push(
-        <MatrixCell
-          rowIndex={rowIndex}
-          cellIndex={cellIndex}
-          key={`matrix-cell-${rowIndex}-${cellIndex}`}
-        />
+        <MyCard key={`matrix-cell-${rowIndex}-${cellIndex}`}>
+          <MatrixCell
+            rowIndex={rowIndex}
+            cellIndex={cellIndex}
+          />
+        </MyCard>
       );
     }
     return cells;
