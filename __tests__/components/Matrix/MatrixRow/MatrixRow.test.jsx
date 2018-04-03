@@ -1,7 +1,7 @@
 import React from "react";
 import {MatrixRow} from "../../../../src/components/Matrix/MatrixRow/MatrixRow";
 import {shallow} from "enzyme";
-import {MatrixCell} from "../../../../src/components/Matrix/MatrixCell/MatrixCell";
+import {MatrixCellContainer} from "../../../../src/components/Matrix/MatrixCell/MatrixCell";
 
 describe('MatrixRow', () => {
   const rowIndex = 5;
@@ -16,6 +16,6 @@ describe('MatrixRow', () => {
   it('should contain it\'s index plus one cells', () => {
     const component = getComponent();
 
-    expect(component.find(MatrixCell)).toHaveLength(rowIndex + 1);
+    expect(component.find(MatrixCellContainer)).toHaveLength(rowIndex + 1);
   });
 });
