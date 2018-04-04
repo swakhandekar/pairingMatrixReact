@@ -1,19 +1,19 @@
 import React from "react";
 import "./matrixCell.scss";
 import {connect} from "react-redux";
+import {incrementCount} from "./actions";
 
-export const MatrixCell = ({rowIndex, cellIndex, value}) => (
-  <div className={`matrix-cell-${rowIndex}-${cellIndex}`}>
+export const MatrixCell = ({rowIndex, cellIndex, value, incrementCount}) => (
+  <div className={`matrix-cell-${rowIndex}-${cellIndex}`} onClick={() => incrementCount(rowIndex, cellIndex)}>
     {value}
   </div>
 );
 
-const mapStateToProps = (state) => ({
-  value: state.sampleReducer.message
+const mapStateToProps = (state, props) => ({
+  value: state.matrix.data[props.rowIndex][props.cellIndex].count
 });
 
-const mapDispatchToProps = (dispatch) => ({
-
-});
-
-export const MatrixCellContainer = connect(mapStateToProps, mapDispatchToProps)(MatrixCell);
+export const MatrixCellContainer = connect(
+  mapStateToProps,
+  {incrementCount}
+)(MatrixCell);

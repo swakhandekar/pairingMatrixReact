@@ -1,19 +1,9 @@
 import {createStore} from "redux";
 import {combineReducers} from "redux";
-
-const defaultState = {
-  message: "Hello!"
-};
-
-const sampleReducer = (state = defaultState, action) => {
-  switch (action.type) {
-    default:
-      return state;
-  }
-};
+import {matrixReducer} from "./components/Matrix/reducer";
 
 const combinedReducers = combineReducers({
-  sampleReducer
+  matrix: matrixReducer
 });
 
 export const store = createStore(combinedReducers);
