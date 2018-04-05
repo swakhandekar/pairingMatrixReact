@@ -1,12 +1,10 @@
 import {CELL_ACTIONS} from "./MatrixCell/actions";
 import {cellReducer} from "./MatrixCell/reducer";
+import {LOADING_STATE} from "../utils/enums";
 
 const initialMatrix = {
-  data: [
-    [{count: 0}],
-    [{count: 5}, {count: 8}],
-    [{count: 2}, {count: 0}, {count: 3}]
-  ]
+  data: [],
+  loadingState: LOADING_STATE.LOADING
 };
 
 export const matrixReducer = (state = initialMatrix, action) => {
