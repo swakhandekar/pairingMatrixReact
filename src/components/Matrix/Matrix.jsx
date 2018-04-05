@@ -1,6 +1,7 @@
 import React from "react";
 import {MatrixRow} from "./MatrixRow/MatrixRow";
 import "./matrix.scss";
+import {connect} from "react-redux";
 
 export const Matrix = ({length}) => {
   const getRows = (length) => {
@@ -17,3 +18,9 @@ export const Matrix = ({length}) => {
     </div>
   );
 };
+
+const mapStateToProps = (state) => ({
+  length: state.matrix.data.length
+});
+
+export const MatrixContainer = connect(mapStateToProps, {})(Matrix);
