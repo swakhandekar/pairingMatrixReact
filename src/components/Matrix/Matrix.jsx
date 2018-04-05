@@ -2,9 +2,8 @@ import React from "react";
 import {MatrixRow} from "./MatrixRow/MatrixRow";
 import "./matrix.scss";
 import {connect} from "react-redux";
-import {LoadingBody} from "../utils/LoadingBody/LoadingBody";
 
-export const Matrix = ({length, loadingState}) => {
+export const Matrix = ({length}) => {
   const getRows = (length) => {
     const rows = [];
     for (let rowIndex = 0; rowIndex < length; rowIndex++) {
@@ -15,9 +14,7 @@ export const Matrix = ({length, loadingState}) => {
 
   return (
     <div className="matrix">
-      <LoadingBody loadingState={loadingState}>
-        {getRows(length).map(row => row)}
-      </LoadingBody>
+      {getRows(length).map(row => row)}
     </div>
   );
 };
