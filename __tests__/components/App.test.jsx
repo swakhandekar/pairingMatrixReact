@@ -7,10 +7,12 @@ import {LOADING_STATE} from "../../src/components/utils/enums";
 import {LoadingBody} from "../../src/components/utils/LoadingBody/LoadingBody";
 
 describe('App', () => {
+  const mockFetchMatrix = jest.fn();
   const matrixLoadingState = LOADING_STATE.FINISHED;
   const getComponent = () => shallow(
     <App
       matrixLoadingState={matrixLoadingState}
+      fetchMatrix={mockFetchMatrix}
     />
   );
   let component;
@@ -38,5 +40,9 @@ describe('App', () => {
 
     expect(loadingBody.props().loadingState).toBe(matrixLoadingState);
     expect(loadingBody.find(MatrixContainer)).toHaveLength(1);
+  });
+
+  it('should call fetchMatrix on mount', () => {
+    expect(mockFetchMatrix).toHaveBeenCalled();
   });
 });

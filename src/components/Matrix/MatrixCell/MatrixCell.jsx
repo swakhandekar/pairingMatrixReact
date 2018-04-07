@@ -10,7 +10,7 @@ export const MatrixCell = ({rowIndex, cellIndex, value, incrementCount}) => (
 );
 
 const mapStateToProps = (state, props) => ({
-  value: state.matrix.data[props.rowIndex][props.cellIndex].count
+  value: state.matrix.data[props.rowIndex][props.cellIndex]
 });
 
 export const MatrixCellContainer = connect(

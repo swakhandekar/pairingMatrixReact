@@ -1,7 +1,7 @@
 import {CELL_ACTIONS} from "./actions";
 
 const incrementCellCount = (matrix, rowIndex, cellIndex) => {
-  matrix[rowIndex][cellIndex].count += 1;
+  matrix[rowIndex][cellIndex] += 1;
   return matrix;
 };
 

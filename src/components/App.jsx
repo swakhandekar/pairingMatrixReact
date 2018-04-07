@@ -3,20 +3,32 @@ import {Header} from "./Header/Header";
 import {MatrixContainer} from "./Matrix/Matrix";
 import {connect} from "react-redux";
 import {LoadingBody} from "./utils/LoadingBody/LoadingBody";
+import {getPairingData} from "../services/apiServices/pairApi";
+import {LOADING_STATE} from "./utils/enums";
+import {fetchMatrix} from "./Matrix/actions";
 
-export const App = ({matrixLoadingState}) => (
-  <div>
-    <Header/>
-    <div className="body">
-      <LoadingBody loadingState={matrixLoadingState}>
-        <MatrixContainer/>
-      </LoadingBody>
-    </div>
-  </div>
-);
+export class App extends React.Component {
+  componentDidMount(){
+    this.props.fetchMatrix();
+  }
+
+  render() {
+    const {matrixLoadingState} = this.props;
+    return (
+      <div>
+        <Header/>
+        <div className="body">
+          <LoadingBody loadingState={matrixLoadingState}>
+            <MatrixContainer/>
+          </LoadingBody>
+        </div>
+      </div>
+    )
+  }
+}
 
 const mapStateToProps = (state) => ({
   matrixLoadingState: state.matrix.loadingState
 });
 
-export const AppContainer = connect(mapStateToProps, {})(App);
+export const AppContainer = connect(mapStateToProps, {fetchMatrix})(App);
