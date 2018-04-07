@@ -1,27 +1,27 @@
-import {CELL_ACTIONS} from "./MatrixCell/actions";
+import {CellActions} from "./MatrixCell/actions";
 import {cellReducer} from "./MatrixCell/reducer";
-import {LOADING_STATE} from "../utils/enums";
+import {LoadingState} from "../utils/enums";
 import {MatrixActions} from "./actions";
 import {buildMatrix} from "../../services/matrixServices/matrixBuilder";
 
 const initialMatrix = {
   data: [],
-  loadingState: LOADING_STATE.LOADING
+  loadingState: LoadingState.LOADING
 };
 
 export const matrixReducer = (state = initialMatrix, action) => {
   switch (action.type) {
     case MatrixActions.LOADING_MATRIX:
-      return {...state, loadingState: LOADING_STATE.LOADING};
+      return {...state, loadingState: LoadingState.LOADING};
     case MatrixActions.LOAD_MATRIX_FAILED:
-      return {...state, loadingState: LOADING_STATE.FAILED};
+      return {...state, loadingState: LoadingState.FAILED};
     case MatrixActions.BUILD_MATRIX:
       return {
         ...state,
-        loadingState: LOADING_STATE.FINISHED,
+        loadingState: LoadingState.FINISHED,
         data: buildMatrix(action.users, action.pairs)
       };
-    case CELL_ACTIONS.INCREMENT_COUNT:
+    case CellActions.INCREMENT_COUNT:
       return cellReducer(state, action);
     default:
       return state;

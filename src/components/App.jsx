@@ -4,7 +4,7 @@ import {MatrixContainer} from "./Matrix/Matrix";
 import {connect} from "react-redux";
 import {LoadingBody} from "./utils/LoadingBody/LoadingBody";
 import {getPairingData} from "../services/apiServices/pairApi";
-import {LOADING_STATE} from "./utils/enums";
+import {LoadingState} from "./utils/enums";
 import {fetchMatrix} from "./Matrix/actions";
 
 export class App extends React.Component {

@@ -1,13 +1,13 @@
-import {LOADING_STATE} from "../enums";
+import {LoadingState} from "../enums";
 import React from "react";
 
 export const LoadingBody = ({children, loadingState}) => {
   switch (loadingState) {
-    case LOADING_STATE.LOADING:
+    case LoadingState.LOADING:
       return (<div>Loading...</div>);
-    case LOADING_STATE.FINISHED:
+    case LoadingState.FINISHED:
       return children;
-    case LOADING_STATE.FAILED:
+    case LoadingState.FAILED:
       return (<div>Failed Loading</div>)
   }
 };

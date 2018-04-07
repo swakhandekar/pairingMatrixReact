@@ -1,5 +1,5 @@
 import {fetchMatrix, buildMatrix, MatrixActions} from "../../../src/components/Matrix/actions";
-import {LOADING_STATE} from "../../../src/components/utils/enums";
+import {LoadingState} from "../../../src/components/utils/enums";
 import * as pairApi from "../../../src/services/apiServices/pairApi";
 
 describe('Matrix actions', () => {

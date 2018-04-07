@@ -1,4 +1,4 @@
-import {CELL_ACTIONS} from "./actions";
+import {CellActions} from "./actions";
 
 const incrementCellCount = (matrix, rowIndex, cellIndex) => {
   matrix[rowIndex][cellIndex] += 1;
@@ -7,7 +7,7 @@ const incrementCellCount = (matrix, rowIndex, cellIndex) => {
 
 export const cellReducer = (state, action) => {
   switch (action.type) {
-    case CELL_ACTIONS.INCREMENT_COUNT:
+    case CellActions.INCREMENT_COUNT:
       return {
         ...state,
         data: incrementCellCount(state.data, action.rowIndex, action.cellIndex)

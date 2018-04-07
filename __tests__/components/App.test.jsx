@@ -3,12 +3,12 @@ import React from "react";
 import {App} from "../../src/components/App";
 import {Header} from "../../src/components/Header/Header";
 import {MatrixContainer} from "../../src/components/Matrix/Matrix";
-import {LOADING_STATE} from "../../src/components/utils/enums";
+import {LoadingState} from "../../src/components/utils/enums";
 import {LoadingBody} from "../../src/components/utils/LoadingBody/LoadingBody";
 
 describe('App', () => {
   const mockFetchMatrix = jest.fn();
-  const matrixLoadingState = LOADING_STATE.FINISHED;
+  const matrixLoadingState = LoadingState.FINISHED;
   const getComponent = () => shallow(
     <App
       matrixLoadingState={matrixLoadingState}
