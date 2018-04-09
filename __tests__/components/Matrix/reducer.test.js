@@ -11,7 +11,8 @@ describe('Matrix reducer', () => {
   beforeEach(() => {
     initialState = {
       data: [],
-        loadingState: LoadingState.LOADING
+      users: [],
+      loadingState: LoadingState.LOADING
     };
   });
 
@@ -50,12 +51,13 @@ describe('Matrix reducer', () => {
     const dummyMatrix = [
       [0],
       [3, 0],
-      [2, 5,0]
+      [2, 5, 0]
     ];
     spyOn(matrixBuilder, "buildMatrix").and.returnValue(dummyMatrix);
     const action = {
       type: MatrixActions.BUILD_MATRIX,
-      users: [], pairs: []
+      users: [{Name: "default", ID: 34}],
+      pairs: []
     };
 
     const newState = matrixReducer(initialState, action);
@@ -63,7 +65,8 @@ describe('Matrix reducer', () => {
     expect(matrixBuilder.buildMatrix).toHaveBeenCalledTimes(1);
     expect(newState).toEqual({
       loadingState: LoadingState.FINISHED,
-      data: dummyMatrix
+      data: dummyMatrix,
+      users: action.users
     });
   });
 });

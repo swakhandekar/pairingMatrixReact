@@ -2,7 +2,7 @@ import React from "react";
 import {MatrixCellContainer} from "../MatrixCell/MatrixCell";
 import {MyCard} from "../../utils/MyCard/MyCard";
 import "./matrixRow.scss";
-import {UserCell} from "../UserCell/UserCell";
+import {UserCellContainer} from "../UserCell/UserCell";
 
 export const MatrixRow = ({rowIndex}) => {
   const getCells = (rowIndex) => {
@@ -12,7 +12,7 @@ export const MatrixRow = ({rowIndex}) => {
       if (cellIndex === rowIndex) {
         cells.push(
           <MyCard key={`card-${rowIndex}`}>
-            <UserCell name={"default"}/>
+            <UserCellContainer index={rowIndex}/>
           </MyCard>
         )
       }

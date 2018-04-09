@@ -6,6 +6,7 @@ import {buildMatrix} from "../../services/matrixServices/matrixBuilder";
 
 const initialMatrix = {
   data: [],
+  users: [],
   loadingState: LoadingState.LOADING
 };
 
@@ -19,6 +20,7 @@ export const matrixReducer = (state = initialMatrix, action) => {
       return {
         ...state,
         loadingState: LoadingState.FINISHED,
+        users: action.users,
         data: buildMatrix(action.users, action.pairs)
       };
     case CellActions.INCREMENT_COUNT:
