@@ -10,7 +10,8 @@ export const cellReducer = (state, action) => {
     case CellActions.INCREMENT_COUNT:
       return {
         ...state,
-        data: incrementCellCount(state.data, action.rowIndex, action.cellIndex)
+        data: incrementCellCount(state.data, action.rowIndex, action.cellIndex),
+        colourBuilder: state.colourBuilder.updateMinMax(state.data[action.rowIndex][action.cellIndex])
       };
     default:
       return state;
